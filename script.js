@@ -276,7 +276,75 @@ function takeCommand(message) {
       speak("The Prime Minister of India is Narendra Modi.");
     }
     foundMatch = true;
-  }
+  }else if (
+   message.includes("who is the president of india") ||
+   message.includes("president of india") ||
+   message.includes("bharat ke rashtrapati kaun hai")||
+   message.includes("bharat ka rashtrapati kaun hai")||
+   message.includes("india ke president kaun hai")
+   ) {
+   if (message.includes("bharat") || message.includes("kaun")) {
+   speak("Bharat ke rashtrapati Droupadi Murmu ji hain.");
+   } else {
+   speak("The President of India is Droupadi Murmu.");
+   }
+   foundMatch = true;
+   }
+  
+  else if (
+   message.includes("what is the capital of india") ||
+   message.includes("india's capital") ||
+   message.includes("bharat ki rajdhani kya hai")||
+   message.includes("india ki rajdhani kya hai")||
+   message.includes("capital of india")
+   ) {
+   if (message.includes("bharat") || message.includes("rajdhani")) {
+   speak("Bharat ki rajdhani New Delhi hai.");
+   } else {
+   speak("The capital of India is New Delhi.");
+   }
+   foundMatch = true;
+   }
+  
+  else if (
+   message.includes("who is the founder of microsoft") ||
+   message.includes("microsoft ke sansthapak kaun hai") ||
+   message.includes("microsoft ka founder kaun hai")
+   ) {
+   if (message.includes("microsoft") && message.includes("sansthapak")) {
+   speak("Microsoft ke sansthapak Bill Gates hain.");
+   } else {
+   speak("The founder of Microsoft is Bill Gates.");
+   }
+   foundMatch = true;
+   }
+  
+  else if (
+   message.includes("who invented the telephone") ||
+   message.includes("telephone ka avishkar kisne kiya") ||
+   message.includes("telephone kisne banaya")
+   ) {
+   if (message.includes("telephone") && message.includes("kisne")) {
+   speak("Telephone ka avishkar Alexander Graham Bell ne kiya tha.");
+   } else {
+   speak("The telephone was invented by Alexander Graham Bell.");
+   }
+   foundMatch = true;
+   }
+  
+  else if (
+   message.includes("what is the national animal of india") ||
+   message.includes("bharat ka rashtriya pashu kaun hai") ||
+   message.includes("india ka national animal kya hai")
+   ) {
+   if (message.includes("bharat") || message.includes("rashtriya")) {
+   speak("Bharat ka rashtriya pashu Bagha hai, jo ek Bengal Tiger hai.");
+   } else {
+   speak("The national animal of India is the Bengal Tiger.");
+    }
+    foundMatch = true;
+   }
+  
 else if (
     message.includes("capital of india") ||
     message.includes("what is the capital of india") ||
@@ -959,6 +1027,18 @@ else if (
   speak("Main tumhara virtual assistant hoon, aur tumhari madad ke liye yahan hoon.");
   foundMatch = true;
 }
+
+else if (
+   message.includes("tumhe kab banaya") || 
+   message.includes("tumhara birthday kab hai") || 
+   message.includes("when were you created") || 
+   message.includes("what is your birthday")
+   ) {
+   speak("Mujhe Abhishek sir ne apne laptop me 10 October ko banaya.");
+   foundMatch = true;
+  }
+  
+
 else if (
   message.includes("are you a robot") ||
   message.includes("kya tum robot ho")
@@ -1077,7 +1157,37 @@ else if (
 ) {
   speak("Zindagi ka matlab sabke liye alag hota hai, tum apna matlab khud banao.");
   foundMatch = true;
-}
+}else if (
+   message.includes("add") || 
+   message.includes("plus") || 
+   message.includes("subtract") || 
+   message.includes("minus") || 
+   message.includes("multiply") || 
+   message.includes("divide")
+   ) {
+   // Extract numbers from the message
+  let numbers = message.match(/\d+/g);
+   let num1 = parseInt(numbers[0]);
+   let num2 = parseInt(numbers[1]);
+   let result;
+  
+   if (message.includes("add") || message.includes("plus")) {
+   result = num1 + num2;
+  speak(`${num1} plus ${num2} equals ${result}`);
+   } else if (message.includes("subtract") || message.includes("minus")) {
+   result = num1 - num2;
+   speak(`${num1} minus ${num2} equals ${result}`);
+   } else if (message.includes("multiply")) {
+   result = num1 * num2;
+  speak(`${num1} multiplied by ${num2} equals ${result}`);
+   } else if (message.includes("divide")) {
+   result = num1 / num2;
+   speak(`${num1} divided by ${num2} equals ${result}`);
+   }
+  
+   foundMatch = true;
+  }
+  
 else if (
   message.includes("what is 2 + 2") ||
   message.includes("2 + 2 kitna hota hai")
@@ -1093,6 +1203,547 @@ else if (
   foundMatch = true;
 }
 
+
+else if (
+   message.includes("aasman me taare kitne hain") || 
+   message.includes("how many stars are in the sky") || 
+   message.includes("taare kitne hain") || 
+   message.includes("star kitne hain") || 
+   message.includes("how many stars")
+   ) {
+   speak("Aasman mein itne taare hain, jo ginne se nahi gin sakte, par unmein se har ek ka apna ek kahani hai.");
+   foundMatch = true;
+  }
+  
+  else if (
+    message.includes("what is the meaning of life") ||
+    message.includes("zindagi ka matlab kya hai") || 
+    message.includes("life ka purpose kya hai")
+  ) {
+    speak("Zindagi ka matlab hai khud ko khojna, naye anubhav karna, aur khushiyon ka saath dena.");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("how deep is the ocean") || 
+    message.includes("samundar kitna gehra hai") || 
+    message.includes("ocean ki gehraai kya hai")
+  ) {
+    speak("Samundar ki gehraai itni hai ki uska koi andaaza nahi laga sakta, jaise dard ki gehraai jo kabhi nahi samajh aati.");
+    foundMatch = true;
+}
+
+else if (
+  message.includes("wifi kisne banaya") || 
+  message.includes("who invented wifi") || 
+  message.includes("wifi ka avishkar kisne kiya")
+) {
+  speak("WiFi ka avishkar Hedy Lamarr aur George Antheil ne kiya tha. Unhone ek aisa system develop kiya tha jo radio signals ko transmit karne mein madad karta hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("internet kisne banaya") || 
+  message.includes("who invented the internet") || 
+  message.includes("internet ka avishkar kisne kiya")
+) {
+  speak("Internet ka avishkar multiple researchers ne kiya, lekin Vint Cerf aur Bob Kahn ko iski buniyad daan ke liye jana jata hai.");
+  foundMatch = true;
+}
+
+else if (
+   message.includes("aktu ka full form kya hai") || 
+   message.includes("what is the full form of aktu") || 
+   message.includes("aktu ka naam kya hai")
+   ) {
+   speak("AKTU ka full form hai 'Dr. A.P.J. Abdul Kalam Technical University'.");
+   foundMatch = true;
+  }
+  
+  else if (
+    message.includes("Abhishek Kumar ka parichay do") || 
+    message.includes("who is Abhishek Kumar") || 
+    message.includes("Abhishek Kumar kaun hai")
+  ) {
+    speak("Abhishek Kumar ek BTech Computer Science student hai jo AKTU ke SD College of Engineering and Technology se padhai kar raha hai.");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("Abhishek Kumar ke pita ka naam kya hai") || 
+    message.includes("what is the name of Abhishek Kumar's father") || 
+    message.includes("Abhishek Kumar ke pita ka naam")
+  ) {
+    speak("Abhishek Kumar ke pita ka naam Nobatram hai.");
+    foundMatch = true;
+}
+
+else if (
+  message.includes("ChatGPT kya hai") || 
+  message.includes("what is ChatGPT") || 
+  message.includes("ChatGPT kaise kaam karta hai")
+) {
+  speak("ChatGPT ek language model hai jo OpenAI dwara develop kiya gaya hai. Yeh human-like text generate karne mein saksham hai aur prashno ka jawab dene ke liye use hota hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Gemini kya hai") || 
+  message.includes("what is Gemini") || 
+  message.includes("Gemini AI kaise kaam karta hai")
+) {
+  speak("Gemini ek AI model hai jo Google dwara develop kiya gaya hai. Yeh machine learning ke zariye complex tasks ko handle karne mein madad karta hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("cricket kisne banaya") || 
+  message.includes("who invented cricket") || 
+  message.includes("cricket ka avishkar kisne kiya")
+) {
+  speak("Cricket ka avishkar England mein 16th century ke dauran hua tha. Yeh ek traditional game hai jo aaj duniya bhar mein khela jata hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("football kisne banaya") || 
+  message.includes("who invented football") || 
+  message.includes("football ka avishkar kisne kiya")
+) {
+  speak("Football ka avishkar China mein 2,000 saal pehle hua tha. Iski modern form 19th century mein England mein develop hui thi.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("aktu mein kaunse festivals manaye jaate hain") || 
+  message.includes("what festivals are celebrated at aktu") || 
+  message.includes("aktu mein festivals kaunse hain")
+) {
+  speak("AKTU mein festivals jaise Fresher's Party, Technical Fest, aur Annual Cultural Fest manaye jaate hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Diwali ke baare mein batao") || 
+  message.includes("tell me about Diwali") || 
+  message.includes("Diwali kya hai")
+) {
+  speak("Diwali, yaani Deepawali, ek prachin Hindu tyohaar hai jo andhere se ujjala ki or, aur burai par achchai ki jeet ko darshata hai. Is din log diyas jalate hain aur apne gharon ko sajate hain.");
+  foundMatch = true;
+}
+else if (
+  message.includes("happy birthday") || 
+  message.includes("janmadin ki shubhkamnayein") || 
+  message.includes("birthday wishes") || 
+  message.includes("aaj mera janamdin hai") || 
+  message.includes("birthday mubarak")
+) {
+  speak("Aapko janmadin ki dher saari shubhkamnayein! Aapka din khushiyon se bhara rahe!");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("kya aapko birthday wishes dene aate hain") || 
+  message.includes("can you give birthday wishes") || 
+  message.includes("mujhe birthday wish do")
+) {
+  speak("Bilkul! Yahan kuch birthday wishes hain: 'Is khaas din par, aapki saari khwahishen poori hon! Happy Birthday!'");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("best birthday wishes") || 
+  message.includes("janmadin ki sabse achhi shubhkamnayein") || 
+  message.includes("birthday wish suggestions")
+) {
+  speak("Yeh kuch behtareen birthday wishes hain: 'Aapka saal khushiyon, swasthya, aur samriddhi se bhara ho!'");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("birthday wishes for friend") || 
+  message.includes("dost ke liye janmadin ki shubhkamnayein") || 
+  message.includes("birthday wishes for my friend")
+) {
+  speak("Dost ke liye birthday wish: 'Dost, aapka janmadin khushiyon se bhara ho! Aapki dosti mere liye bahut kimti hai!'");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("birthday wishes for family") || 
+  message.includes("parivaar ke liye janmadin ki shubhkamnayein") || 
+  message.includes("birthday wishes for my family")
+) {
+  speak("Parivaar ke liye birthday wish: 'Aapka janmadin khushiyon se bhara ho! Aap mere parivaar ka ek anmol hissa hain!'");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("funny birthday wishes") || 
+  message.includes("mazakia janmadin ki shubhkamnayein") || 
+  message.includes("birthday wishes funny")
+) {
+  speak("Funny birthday wish: 'Aapka janmadin itna mazedaar ho ki aapko aaj ki cake mein candle jagaane mein bhi madad karni pade!'");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("birthday quotes") || 
+  message.includes("janmadin ke quotes") || 
+  message.includes("birthday quotes in hindi")
+) {
+  speak("Birthday quote: 'Zindagi ek kitab ki tarah hai. Har saal ek naya adhyay hota hai. Happy Birthday!'");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Holi ke baare mein batao") || 
+  message.includes("tell me about Holi") || 
+  message.includes("Holi kya hai")
+) {
+  speak("Holi, rangon ka tyohaar hai, jo prem, bhaichara, aur khushiyon ka pratinidhitva karta hai. Log ek dusre par rang lagate hain aur mithaiyan baantate hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Eid ke baare mein batao") || 
+  message.includes("tell me about Eid") || 
+  message.includes("Eid kya hai")
+) {
+  speak("Eid, Musalmanon ka ek pramukh tyohaar hai, jo Ramadan ke mahine ke baad aata hai. Is din log namaz padhte hain, ek dusre ko Eid Mubarak kehte hain, aur khushiyan manate hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Christmas ke baare mein batao") || 
+  message.includes("tell me about Christmas") || 
+  message.includes("Christmas kya hai")
+) {
+  speak("Christmas, Yeshu Masih ki janm din hai, jo 25 December ko manaya jata hai. Log is din ek dusre ko gifts dete hain aur Christmas tree sajate hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Pongal ke baare mein batao") || 
+  message.includes("tell me about Pongal") || 
+  message.includes("Pongal kya hai")
+) {
+  speak("Pongal, Tamil Nadu ka ek pramukh tyohaar hai, jo kharif fasal ki katayi par manaya jata hai. Is din log Pongal dish banate hain aur apne parivar ke saath isse khate hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Navratri ke baare mein batao") || 
+  message.includes("tell me about Navratri") || 
+  message.includes("Navratri kya hai")
+) {
+  speak("Navratri, Maa Durga ke nav roopon ki pooja ka tyohaar hai, jo 9 din tak manaya jata hai. Is dauran log garba aur dandiya khelte hain aur vrat rakhte hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("badminton kisne banaya") || 
+  message.includes("who invented badminton") || 
+  message.includes("badminton ka avishkar kisne kiya")
+) {
+  speak("Badminton ka avishkar 19th century mein British Army officers ne kiya tha jab unhone ek game khelna shuru kiya jisse 'Poona' kaha jata tha.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("hockey kisne banaya") || 
+  message.includes("who invented hockey") || 
+  message.includes("hockey ka avishkar kisne kiya")
+) {
+  speak("Hockey ka avishkar ancient civilizations mein hua, lekin modern field hockey ka development 19th century mein England mein hua tha.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("tennis kisne banaya") || 
+  message.includes("who invented tennis") || 
+  message.includes("tennis ka avishkar kisne kiya")
+) {
+  speak("Modern tennis ka avishkar 19th century mein England mein hua. Is game ka purana version 'jeu de paume' kaha jata tha.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("famous cricketers kaun hain") || 
+  message.includes("who are famous cricketers") || 
+  message.includes("prasiddh cricketers kaun hain")
+) {
+  speak("Famous cricketers mein Sachin Tendulkar, Virat Kohli, aur MS Dhoni shamil hain, jo India ke liye mahan khel karke jane jaate hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("famous footballers kaun hain") || 
+  message.includes("who are famous footballers") || 
+  message.includes("prasiddh footballers kaun hain")
+) {
+  speak("Famous footballers mein Lionel Messi, Cristiano Ronaldo, aur Pelé shamil hain, jo apne exceptional skills ke liye jaane jaate hain.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("olympics kisne shuru kiya") || 
+  message.includes("who started the olympics") || 
+  message.includes("olympics ka avishkar kisne kiya")
+) {
+  speak("Olympics ki shuruaat ancient Greece mein 776 BC mein hui thi. Modern Olympics ka avishkar 1896 mein Pierre de Coubertin ne kiya.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("cricket world cup kab hota hai") || 
+  message.includes("when is the cricket world cup") || 
+  message.includes("cricket world cup kab hota hai")
+) {
+  speak("Cricket World Cup har 4 saal mein hota hai. Iska agla edition 2023 mein India mein ho raha hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("football world cup kab hota hai") || 
+  message.includes("when is the football world cup") || 
+  message.includes("football world cup kab hota hai")
+) {
+  speak("Football World Cup har 4 saal mein hota hai. Iska agla edition 2026 mein hoga, jisme USA, Canada, aur Mexico hosting karenge.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Copilot kya hai") || 
+  message.includes("what is Copilot") || 
+  message.includes("Copilot kaise kaam karta hai")
+) {
+  speak("Copilot, GitHub dwara develop kiya gaya AI pair programmer hai. Yeh code likhne mein developers ki madad karta hai aur suggestions pradan karta hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Alexa kya hai") || 
+  message.includes("what is Alexa") || 
+  message.includes("Alexa kaise kaam karta hai")
+) {
+  speak("Alexa Amazon ka virtual assistant hai. Yeh voice commands ko samajh kar home automation, music playback aur information pradan karta hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("Google Assistant kya hai") || 
+  message.includes("what is Google Assistant") || 
+  message.includes("Google Assistant kaise kaam karta hai")
+) {
+  speak("Google Assistant ek AI-driven virtual assistant hai jo Google dwara develop kiya gaya hai. Yeh voice commands ko samajh kar prashno ke jawab deta hai, reminders set karta hai aur aur bhi bahut kuch karta hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("AI ka kya fayda hai") || 
+  message.includes("what are the benefits of AI") || 
+  message.includes("AI ke faayde kya hain")
+) {
+  speak("AI se humari productivity badh jaati hai, repetitive tasks automate ho jaate hain, aur complex data analysis aasan ho jaata hai.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("AI ke nuksan kya hain") || 
+  message.includes("what are the drawbacks of AI") || 
+  message.includes("AI ke nuksan kya hain")
+) {
+  speak("AI ke kuch nuksan hain jaise job displacement, privacy concerns, aur biased decision-making agar training data biased ho.");
+  foundMatch = true;
+}
+
+else if (
+    message.includes("Abhishek Kumar ke mata ka naam kya hai") || 
+    message.includes("what is the name of Abhishek Kumar's mother") || 
+    message.includes("Abhishek Kumar ke mata ka naam")
+  ) {
+    speak("Abhishek Kumar ke mata ka naam Sarita Devi hai.");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("Abhishek Kumar kis college se padhai kar raha hai") || 
+    message.includes("which college is Abhishek Kumar studying in") || 
+    message.includes("Abhishek Kumar kis college mein hai")
+  ) {
+    speak("Abhishek Kumar SD College of Engineering and Technology se padhai kar raha hai, jo AKTU ke antargat hai.");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("Abhishek Kumar ke hobbies kya hain") || 
+    message.includes("what are Abhishek Kumar's hobbies") || 
+    message.includes("Abhishek Kumar ki hobbies")
+  ) {
+    speak("Abhishek Kumar ko programming, gaming, aur naye technology ke baare mein seekhna pasand hai.");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("Abhishek Kumar ke projects kya hain") || 
+    message.includes("what projects has Abhishek Kumar worked on") || 
+    message.includes("Abhishek Kumar ke projects")
+  ) {
+    speak("Abhishek Kumar ne kai projects par kaam kiya hai, jaise ki blogging website, virtual assistant, aur social media application.");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("Abhishek Kumar kaunse subjects padh raha hai") || 
+    message.includes("what subjects is Abhishek Kumar studying") || 
+    message.includes("Abhishek Kumar ke subjects")
+  ) {
+    speak("Abhishek Kumar is semester mein Data Structures, Computer Organization, aur Technical Communication jaise subjects padh raha hai.");
+    foundMatch = true;
+}
+
+
+  else if (
+   message.includes("aktu kab bana tha") || 
+   message.includes("when was aktu established") || 
+   message.includes("aktu ki sthapna kab hui thi")
+   ) {
+   speak("AKTU ki sthapna 2013 mein hui thi. Iska naam Bharat ke prashiddh scientist Dr. A.P.J. Abdul Kalam ke naam par rakha gaya.");
+   foundMatch = true;
+  }
+  
+  else if (
+   message.includes("aktu ki location kya hai") || 
+   message.includes("where is aktu located") || 
+   message.includes("aktu kahan hai")
+   ) {
+   speak("AKTU ki location Lucknow, Uttar Pradesh mein hai.");
+   foundMatch = true;
+  }
+  
+  else if (
+   message.includes("aktu ke courses kya hain") || 
+   message.includes("what courses are offered by aktu") || 
+   message.includes("aktu mein kaunse courses hain")
+   ) {
+   speak("AKTU engineering, management, pharmacy, architecture, aur applied sciences jaise vibhinn courses pradan karta hai.");
+   foundMatch = true;
+  }
+  
+  else if (
+   message.includes("aktu ke notable alumni kaun hain") || 
+   message.includes("who are the notable alumni of aktu") || 
+   message.includes("aktu ke prasiddh alumni kaun hain")
+   ) {
+   speak("AKTU ke kuch notable alumni mein Sanjeev Bikhchandani, founder of Naukri.com, aur Prateek Agarwal, CEO of GMR Group shamil hain.");
+   foundMatch = true;
+  }
+  
+  else if (
+   message.includes("aktu ke campus facilities kya hain") || 
+   message.includes("what are the campus facilities at aktu") || 
+   message.includes("aktu mein kya facilities hain")
+   ) {
+   speak("AKTU ke campus mein libraries, computer labs, sports facilities, aur student hostels shamil hain.");
+   foundMatch = true;
+  }
+  
+  else if (
+   message.includes("aktu ke placements kaise hain") || 
+   message.includes("how are the placements at aktu") || 
+   message.includes("aktu mein placement kaise hote hain")
+   ) {
+  speak("AKTU mein placements kaafi achhe hote hain, jahan kai reputed companies students ko hire karti hain.");
+   foundMatch = true;
+  }
+  
+
+
+else if (
+  message.includes("phone kisne banaya") || 
+  message.includes("who invented the telephone") || 
+  message.includes("telephone ka avishkar kisne kiya")
+) {
+  speak("Telephone ka avishkar Alexander Graham Bell ne kiya tha. Unhone pehli baar sound ko electricity ke zariye transmit kiya.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("computer kisne banaya") || 
+  message.includes("who invented the computer") || 
+  message.includes("computer ka avishkar kisne kiya")
+) {
+  speak("Computer ka avishkar Charles Babbage ne kiya tha, unhone Analytical Engine ka concept diya jo pehla mechanical computer tha.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("light bulb kisne banaya") || 
+  message.includes("who invented the light bulb") || 
+  message.includes("light bulb ka avishkar kisne kiya")
+) {
+  speak("Light bulb ka avishkar Thomas Edison ne kiya tha, lekin iske pehle bahut se researchers is par kaam kar rahe the.");
+  foundMatch = true;
+}
+
+else if (
+  message.includes("airplane kisne banaya") || 
+  message.includes("who invented the airplane") || 
+  message.includes("airplane ka avishkar kisne kiya")
+) {
+  speak("Airplane ka avishkar Wright brothers, Orville aur Wilbur Wright ne kiya tha. Unhone 1903 mein pehli baar controlled flight ki thi.");
+  foundMatch = true;
+}
+
+else if (
+    message.includes("tell me a joke") || 
+    message.includes("mujhe ek chutkula sunaao") 
+  ) {
+    speak("Why did the scarecrow win an award? Because he was outstanding in his field!");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("what is love") || 
+    message.includes("pyaar kya hai") 
+  ) {
+    speak("Pyaar ek anokha ehsaas hai, jo dil se dil tak pahunchata hai.");
+    foundMatch = true;
+}
+
+else if (
+    message.includes("why is the sky blue") || 
+    message.includes("aasmaan neela kyun hai") 
+  ) {
+    speak("Aasmaan neela isliye hai kyunki surya ki roshni hawa ke molecule se takraati hai aur neeli roshni sabse zyada bikharti hai.");
+    foundMatch = true;
+}
+
+else if (
+   message.includes("calculate") || 
+   message.includes("what is") || 
+   message.includes("solve")
+   ) {
+   // Extract numbers and operators from the message
+   let sanitizedMessage = message.replace(/[^0-9\+\-\*\/\.\(\) ]/g, ""); // Remove non-mathematical characters
+   let result;
+  
+   try {
+   // Use eval() to calculate the result
+   result = eval(sanitizedMessage);
+   if (result !== undefined && !isNaN(result)) {
+   speak(`The result is ${result}`);
+   } else {
+   speak("I'm sorry, I couldn't calculate that.");
+   }
+   } catch (error) {
+   speak("There was an error with your calculation. Please try again.");
+   }
+  
+   foundMatch = true;
+  }
+  
 
    else if (message.includes("what's your purpose")) {
     speak(
